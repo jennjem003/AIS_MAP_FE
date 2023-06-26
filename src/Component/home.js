@@ -2,7 +2,7 @@ import React from 'react';
 import GifPlayer from 'react-gif-player';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
-import gifImage from 'D:/LJH/REstart_FE/ais_fe/src/img/Animation.gif';
+import gifImage from '../img/Animation.gif';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Home = () => {
   };
 
   const handleLocal = () => {
-    window.location.href = "http://localhost:9002/map";
+    window.location.href = "http://badamap.com/map";
   }
 
   return (
