@@ -21,6 +21,8 @@ const Login = () => {
       .then(data => {
         // 서버로부터 받은 응답을 처리
         if (data.success) {
+          // 토큰을 로컬 스토리지에 저장
+          localStorage.setItem('token', data.token);
           // 로그인 성공 시 메인 페이지로 이동
           navigate('/');
         } else {
@@ -40,6 +42,13 @@ const Login = () => {
     navigate('/signup');
   };
 
+  const handleLogout = () => {
+    // 토큰을 로컬 스토리지에서 제거
+    localStorage.removeItem('token');
+    // 로그아웃 후 로그인 페이지로 이동
+    navigate('/login');
+  };
+
   return (
     <div className="container">
       <div className="background">
@@ -54,6 +63,10 @@ const Login = () => {
         </form>
         <div className="signup-link">
           Don't have an account? <button onClick={handleSignup}>Sign up</button>
+        </div>
+        <div>
+          {/* 로그아웃 버튼 */}
+          <button onClick={handleLogout}>Logout</button>
         </div>
       </div>
     </div>
